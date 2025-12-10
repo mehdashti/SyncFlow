@@ -1,0 +1,140 @@
+/* Owner: Mahur Mehdashti <mehdashti@gmail.com> */
+@import "tailwindcss";
+
+/* Mahur Mehdashti Design System v2.0 - Color Tokens */
+@theme {
+  /* Primary - Orange */
+  --color-primary-50: #FFF7ED;
+  --color-primary-100: #FFEDD5;
+  --color-primary-200: #FED7AA;
+  --color-primary-300: #FDBA74;
+  --color-primary-400: #FB923C;
+  --color-primary-500: #F97316;
+  --color-primary-600: #EA580C;
+  --color-primary-700: #C2410C;
+  --color-primary-800: #9A3412;
+  --color-primary-900: #7C2D12;
+
+  /* Neutral - Slate */
+  --color-neutral-50: #F8FAFC;
+  --color-neutral-100: #F1F5F9;
+  --color-neutral-200: #E2E8F0;
+  --color-neutral-300: #CBD5E1;
+  --color-neutral-400: #94A3B8;
+  --color-neutral-500: #64748B;
+  --color-neutral-600: #475569;
+  --color-neutral-700: #334155;
+  --color-neutral-800: #1E293B;
+  --color-neutral-900: #0F172A;
+  --color-neutral-950: #020617;
+
+  /* Semantic Colors */
+  --color-success-50: #F0FDF4;
+  --color-success-100: #DCFCE7;
+  --color-success-500: #22C55E;
+  --color-success-600: #16A34A;
+  --color-success-700: #15803D;
+
+  --color-warning-50: #FFFBEB;
+  --color-warning-100: #FEF3C7;
+  --color-warning-500: #F59E0B;
+  --color-warning-600: #D97706;
+  --color-warning-700: #B45309;
+
+  --color-error-50: #FEF2F2;
+  --color-error-100: #FEE2E2;
+  --color-error-500: #EF4444;
+  --color-error-600: #DC2626;
+  --color-error-700: #B91C1C;
+
+  --color-info-50: #EFF6FF;
+  --color-info-100: #DBEAFE;
+  --color-info-500: #3B82F6;
+  --color-info-600: #2563EB;
+  --color-info-700: #1D4ED8;
+
+  /* Layout Dimensions */
+  --header-height: 56px;
+  --sidebar-width: 240px;
+  --sidebar-width-collapsed: 64px;
+  --content-padding: 24px;
+  --drawer-width: 480px;
+  --drawer-width-lg: 640px;
+
+  /* Font Family */
+  --font-sans: 'Geist', system-ui, sans-serif;
+  --font-rtl: 'Vazirmatn', 'Geist', system-ui, sans-serif;
+}
+
+/* Light Theme (default) */
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: var(--color-neutral-50);
+  --bg-tertiary: var(--color-neutral-100);
+  --text-primary: var(--color-neutral-900);
+  --text-secondary: var(--color-neutral-600);
+  --text-tertiary: var(--color-neutral-400);
+  --border-default: var(--color-neutral-200);
+  --border-strong: var(--color-neutral-300);
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --bg-primary: var(--color-neutral-900);
+  --bg-secondary: var(--color-neutral-800);
+  --bg-tertiary: var(--color-neutral-700);
+  --text-primary: var(--color-neutral-50);
+  --text-secondary: var(--color-neutral-400);
+  --text-tertiary: var(--color-neutral-500);
+  --border-default: var(--color-neutral-700);
+  --border-strong: var(--color-neutral-600);
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+}
+
+/* RTL Support */
+[dir="rtl"] body {
+  font-family: var(--font-rtl);
+}
+
+/* Focus Styles */
+*:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neutral-500);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-600);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neutral-500);
+}
