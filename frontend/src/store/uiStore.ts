@@ -48,7 +48,7 @@ export const useUIStore = create<UIState>()(
       closeDrawer: () => set({ activeDrawer: null, drawerData: null }),
     }),
     {
-      name: 'bridge-ui-storage',
+      name: 'syncflow-ui-storage',
       partialize: (state) => ({
         sidebarCollapsed: state.sidebarCollapsed,
         theme: state.theme,

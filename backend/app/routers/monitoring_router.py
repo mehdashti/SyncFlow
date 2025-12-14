@@ -257,7 +257,7 @@ async def detailed_health_check(
     - 503: Service unhealthy
     """
     health_status = {
-        "service": "bridge-v2",
+        "service": "SyncFlow",
         "version": "2.0.0",
         "status": "healthy",
         "timestamp": datetime.utcnow().isoformat(),
@@ -281,13 +281,13 @@ async def detailed_health_check(
         health_status["status"] = "unhealthy"
 
     # TODO: Check APISmith
-    health_status["checks"]["connector_v2"] = {
+    health_status["checks"]["apismith"] = {
         "status": "unknown",
         "message": "Check not implemented",
     }
 
     # TODO: Check ScheduleHub
-    health_status["checks"]["smartplan_v2"] = {
+    health_status["checks"]["schedulehub"] = {
         "status": "unknown",
         "message": "Check not implemented",
     }
@@ -326,25 +326,25 @@ async def prometheus_metrics(
         metrics = []
 
         # Batch metrics
-        metrics.append("# HELP bridge_v2_batches_total Total number of sync batches")
-        metrics.append("# TYPE bridge_v2_batches_total gauge")
-        metrics.append(f"bridge_v2_batches_total {batch_stats['total_batches']}")
+        metrics.append("# HELP syncflow_batches_total Total number of sync batches")
+        metrics.append("# TYPE syncflow_batches_total gauge")
+        metrics.append(f"syncflow_batches_total {batch_stats['total_batches']}")
 
         # Batch by status
-        metrics.append("# HELP bridge_v2_batches_by_status Number of batches by status")
-        metrics.append("# TYPE bridge_v2_batches_by_status gauge")
+        metrics.append("# HELP syncflow_batches_by_status Number of batches by status")
+        metrics.append("# TYPE syncflow_batches_by_status gauge")
         for status, count in batch_stats["by_status"].items():
-            metrics.append(f'bridge_v2_batches_by_status{{status="{status}"}} {count}')
+            metrics.append(f'syncflow_batches_by_status{{status="{status}"}} {count}')
 
         # Failed records
-        metrics.append("# HELP bridge_v2_failed_records_total Total number of failed records")
-        metrics.append("# TYPE bridge_v2_failed_records_total gauge")
-        metrics.append(f"bridge_v2_failed_records_total {failed_stats['total_failed']}")
+        metrics.append("# HELP syncflow_failed_records_total Total number of failed records")
+        metrics.append("# TYPE syncflow_failed_records_total gauge")
+        metrics.append(f"syncflow_failed_records_total {failed_stats['total_failed']}")
 
         # Retryable failed records
-        metrics.append("# HELP bridge_v2_failed_records_retryable Number of retryable failed records")
-        metrics.append("# TYPE bridge_v2_failed_records_retryable gauge")
-        metrics.append(f"bridge_v2_failed_records_retryable {failed_stats['retryable']}")
+        metrics.append("# HELP syncflow_failed_records_retryable Number of retryable failed records")
+        metrics.append("# TYPE syncflow_failed_records_retryable gauge")
+        metrics.append(f"syncflow_failed_records_retryable {failed_stats['retryable']}")
 
         return "\n".join(metrics)
 

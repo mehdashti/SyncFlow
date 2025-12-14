@@ -1,5 +1,5 @@
 [project]
-name = "bridge-v2"
+name = "syncflow-backend"
 version = "2.0.0"
 description = "Data Integration Microservice - APISmith to ScheduleHub SyncFlow"
 authors = [{name = "ScheduleHub Team"}]

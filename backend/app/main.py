@@ -83,7 +83,7 @@ async def health_check():
     """Health check endpoint."""
     return {
         "status": "healthy",
-        "service": "bridge-v2",
+        "service": "SyncFlow",
         "version": "2.0.0",
         "environment": settings.APP_ENV,
     }
@@ -101,10 +101,10 @@ async def metadata():
             "database": settings.POSTGRES_DB,
             "schema": settings.POSTGRES_SCHEMA,
         },
-        "connector": {
+        "apismith": {
             "url": settings.APISmith_URL,
         },
-        "smartplan": {
+        "schedulehub": {
             "url": settings.ScheduleHub_URL,
         },
     }

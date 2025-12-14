@@ -5,7 +5,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/bridge2/',
+  base: '/syncflow/',
   plugins: [react(), tailwindcss()],
   server: {
     port: 5172,

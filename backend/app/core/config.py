@@ -31,10 +31,10 @@ class Settings(BaseSettings):
     # Database (SyncFlow Metadata)
     POSTGRES_HOST: str = "localhost"
     POSTGRES_PORT: int = 5432
-    POSTGRES_DB: str = "bridge_v2_db"
-    POSTGRES_SCHEMA: str = "bridge"
-    POSTGRES_USER: str = "bridge_user"
-    POSTGRES_PASSWORD: str = "bridge_password"
+    POSTGRES_DB: str = "syncflow_db"
+    POSTGRES_SCHEMA: str = "syncflow"
+    POSTGRES_USER: str = "syncflow_user"
+    POSTGRES_PASSWORD: str = "syncflow_password"
     POSTGRES_POOL_SIZE: int = 20
 
     @property
@@ -75,7 +75,7 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
 
     # Logging
-    LOG_FILE: str = "/var/log/bridge_v2.log"
+    LOG_FILE: str = "/var/log/syncflow.log"
     LOG_MAX_BYTES: int = 10485760
     LOG_BACKUP_COUNT: int = 5
 
