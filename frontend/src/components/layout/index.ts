@@ -1,4 +1,5 @@
 export { AppShell } from './AppShell'
-export { Sidebar } from './Sidebar'
 export { Header } from './Header'
-export { PageHeader } from './PageHeader'
+export { Sidebar } from './Sidebar'
+export { ThemeToggle } from './ThemeToggle'
+export { LanguageSwitcher } from './LanguageSwitcher'

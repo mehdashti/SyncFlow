@@ -1,0 +1,185 @@
+{
+  "common": {
+    "search": "Search...",
+    "cancel": "Cancel",
+    "save": "Save",
+    "create": "Create",
+    "delete": "Delete",
+    "edit": "Edit",
+    "saving": "Saving...",
+    "noData": "No data available",
+    "loading": "Loading...",
+    "actions": "Actions"
+  },
+  "success": {
+    "created": "Created successfully",
+    "updated": "Updated successfully",
+    "deleted": "Deleted successfully"
+  },
+  "errors": {
+    "serverError": "An error occurred. Please try again.",
+    "notFound": "Not found",
+    "unauthorized": "Unauthorized"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "enabled": "Enabled",
+    "disabled": "Disabled"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "connectors": "Connectors",
+    "entities": "Entities",
+    "sync": "Sync Runs",
+    "schedules": "Schedules",
+    "failedRecords": "Failed Records",
+    "settings": "Settings"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "totalConnectors": "Total Connectors",
+    "totalEntities": "Total Entities",
+    "syncedRecords": "Synced Records",
+    "failedRecords": "Failed Records",
+    "recentSyncs": "Recent Sync Runs",
+    "noRecentSyncs": "No recent sync runs"
+  },
+  "connectors": {
+    "title": "Connectors",
+    "create": "New Connector",
+    "edit": "Edit Connector",
+    "deleteConfirm": "Are you sure you want to delete this connector?",
+    "test": "Test",
+    "discover": "Discover",
+    "testSuccess": "Connection successful",
+    "testFailed": "Connection failed",
+    "discoverySuccess": "Discovery completed",
+    "newEntities": "new entities found",
+    "lastTested": "Last tested",
+    "status": {
+      "connected": "Connected",
+      "error": "Error",
+      "untested": "Untested"
+    },
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "My APISmith Instance",
+      "baseUrl": "Base URL",
+      "apiKey": "API Key",
+      "apiKeyPlaceholder": "Leave empty to keep existing key",
+      "apiKeyHint": "Leave empty to keep the current API key",
+      "active": "Active"
+    }
+  },
+  "entities": {
+    "title": "Entities",
+    "description": "Discovered API entities from connectors",
+    "edit": "Edit Entity",
+    "deleteConfirm": "Are you sure you want to delete this entity?",
+    "noEntities": "No entities found",
+    "discoverHint": "Run discovery on a connector to find entities",
+    "connector": "Connector",
+    "syncedRecords": "Synced records",
+    "lastSynced": "Last synced",
+    "syncNow": "Sync Now",
+    "syncStarted": "Sync started",
+    "form": {
+      "name": "Name",
+      "targetSchema": "Target Schema",
+      "targetTable": "Target Table",
+      "syncMode": "Sync Mode",
+      "syncEnabled": "Sync Enabled",
+      "syncInterval": "Sync Interval (seconds)",
+      "syncIntervalHint": "Time between automatic syncs (60-86400 seconds)",
+      "active": "Active"
+    },
+    "syncMode": {
+      "label": "Strategy",
+      "full": "Full Sync",
+      "incremental": "Incremental"
+    }
+  },
+  "sync": {
+    "title": "Sync Runs",
+    "description": "Monitor synchronization progress",
+    "noRuns": "No sync runs yet",
+    "records": "Records",
+    "duration": "Duration",
+    "status": {
+      "pending": "Pending",
+      "running": "Running",
+      "completed": "Completed",
+      "failed": "Failed"
+    },
+    "stats": {
+      "total": "Total Runs",
+      "running": "Running",
+      "completed": "Completed",
+      "failed": "Failed"
+    }
+  },
+  "schedules": {
+    "title": "Schedules",
+    "description": "Automated sync schedules",
+    "create": "New Schedule",
+    "edit": "Edit Schedule",
+    "deleteConfirm": "Are you sure you want to delete this schedule?",
+    "noSchedules": "No schedules configured",
+    "entity": "Entity",
+    "nextRun": "Next run",
+    "lastRun": "Last run",
+    "runNow": "Run Now",
+    "triggered": "Schedule triggered",
+    "enable": "Enable",
+    "disable": "Disable",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Daily Sync",
+      "entity": "Entity",
+      "selectEntity": "Select an entity",
+      "cronExpression": "Cron Expression",
+      "enabled": "Enabled"
+    },
+    "cron": {
+      "everyMinute": "Every minute",
+      "everyHour": "Every hour",
+      "everyDay": "Daily",
+      "everyWeek": "Weekly"
+    }
+  },
+  "failedRecords": {
+    "title": "Failed Records",
+    "description": "Records that failed to sync",
+    "noRecords": "No failed records",
+    "totalFailed": "Total Failed",
+    "deleteConfirm": "Are you sure you want to delete this failed record?",
+    "retry": "Retry",
+    "retrySuccess": "Retry initiated",
+    "retryCount": "Retries",
+    "viewPayload": "View payload",
+    "resolved": "Resolved"
+  },
+  "settings": {
+    "title": "Settings",
+    "description": "Configure your preferences",
+    "appearance": {
+      "title": "Appearance",
+      "description": "Customize the look and feel",
+      "theme": "Theme",
+      "themeDescription": "Choose between light and dark mode"
+    },
+    "language": {
+      "title": "Language",
+      "description": "Change your language preference",
+      "select": "Language",
+      "selectDescription": "Select your preferred language"
+    },
+    "about": {
+      "title": "About",
+      "description": "Application information",
+      "version": "Version",
+      "name": "Application"
+    }
+  }
+}

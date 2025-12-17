@@ -1,31 +1,41 @@
 import { apiClient } from '../client'
-import type { Schedule, CreateScheduleRequest, UpdateScheduleRequest, SchedulerStatus, PaginatedResponse } from '../types'
+import type { Schedule, ScheduleCreate, ScheduleUpdate, PaginatedResponse } from '@/types'
 
 export const schedulesService = {
-  getAll: (params?: { page?: number; page_size?: number; is_enabled?: boolean }) =>
-    apiClient.get<PaginatedResponse<Schedule>>('/schedules', { params }),
+  getAll: async (): Promise<Schedule[]> => {
+    const response = await apiClient.get<PaginatedResponse<Schedule> | Schedule[]>('/schedules')
+    if (Array.isArray(response.data)) {
+      return response.data
+    }
+    return response.data.items
+  },
 
-  getByUid: (uid: string) =>
-    apiClient.get<Schedule>(`/schedules/${uid}`),
+  getById: async (uid: string): Promise<Schedule> => {
+    const response = await apiClient.get<Schedule>(`/schedules/${uid}`)
+    return response.data
+  },
 
-  create: (data: CreateScheduleRequest) =>
-    apiClient.post<Schedule>('/schedules', data),
+  create: async (data: ScheduleCreate): Promise<Schedule> => {
+    const response = await apiClient.post<Schedule>('/schedules', data)
+    return response.data
+  },
 
-  update: (uid: string, data: UpdateScheduleRequest) =>
-    apiClient.patch<Schedule>(`/schedules/${uid}`, data),
+  update: async (uid: string, data: ScheduleUpdate): Promise<Schedule> => {
+    const response = await apiClient.put<Schedule>(`/schedules/${uid}`, data)
+    return response.data
+  },
 
-  delete: (uid: string) =>
-    apiClient.delete(`/schedules/${uid}`),
+  delete: async (uid: string): Promise<void> => {
+    await apiClient.delete(`/schedules/${uid}`)
+  },
 
-  resetProgress: (uid: string) =>
-    apiClient.post(`/schedules/${uid}/reset`),
+  pause: async (uid: string): Promise<Schedule> => {
+    const response = await apiClient.post<Schedule>(`/schedules/${uid}/pause`)
+    return response.data
+  },
 
-  triggerNow: (uid: string) =>
-    apiClient.post(`/schedules/${uid}/trigger`),
-
-  getStatus: () =>
-    apiClient.get<SchedulerStatus>('/schedules/status'),
-
-  getStats: () =>
-    apiClient.get('/schedules/stats'),
+  resume: async (uid: string): Promise<Schedule> => {
+    const response = await apiClient.post<Schedule>(`/schedules/${uid}/resume`)
+    return response.data
+  },
 }

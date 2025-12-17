@@ -1,0 +1,179 @@
+{
+  "common": {
+    "search": "Ara...",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "create": "Oluştur",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "saving": "Kaydediliyor...",
+    "noData": "Veri bulunamadı",
+    "loading": "Yükleniyor...",
+    "actions": "İşlemler"
+  },
+  "success": {
+    "created": "Başarıyla oluşturuldu",
+    "updated": "Başarıyla güncellendi",
+    "deleted": "Başarıyla silindi"
+  },
+  "errors": {
+    "serverError": "Bir hata oluştu. Lütfen tekrar deneyin.",
+    "notFound": "Bulunamadı",
+    "unauthorized": "Yetkisiz"
+  },
+  "status": {
+    "active": "Aktif",
+    "inactive": "Pasif",
+    "enabled": "Etkin",
+    "disabled": "Devre Dışı"
+  },
+  "sidebar": {
+    "dashboard": "Kontrol Paneli",
+    "connectors": "Bağlayıcılar",
+    "entities": "Varlıklar",
+    "sync": "Senkronizasyonlar",
+    "schedules": "Zamanlamalar",
+    "failedRecords": "Başarısız Kayıtlar",
+    "settings": "Ayarlar"
+  },
+  "dashboard": {
+    "title": "Kontrol Paneli",
+    "totalConnectors": "Toplam Bağlayıcı",
+    "totalEntities": "Toplam Varlık",
+    "syncedRecords": "Senkronize Edilen Kayıtlar",
+    "failedRecords": "Başarısız Kayıtlar",
+    "recentSyncs": "Son Senkronizasyonlar",
+    "noRecentSyncs": "Son senkronizasyon yok"
+  },
+  "connectors": {
+    "title": "Bağlayıcılar",
+    "create": "Yeni Bağlayıcı",
+    "edit": "Bağlayıcıyı Düzenle",
+    "deleteConfirm": "Bu bağlayıcıyı silmek istediğinizden emin misiniz?",
+    "test": "Test Et",
+    "discover": "Keşfet",
+    "testSuccess": "Bağlantı başarılı",
+    "testFailed": "Bağlantı başarısız",
+    "discoverySuccess": "Keşif tamamlandı",
+    "newEntities": "yeni varlık bulundu",
+    "lastTested": "Son test",
+    "status": {
+      "connected": "Bağlı",
+      "error": "Hata",
+      "untested": "Test Edilmedi"
+    },
+    "form": {
+      "name": "Ad",
+      "namePlaceholder": "APISmith Örneğim",
+      "baseUrl": "Temel URL",
+      "apiKey": "API Anahtarı",
+      "apiKeyPlaceholder": "Mevcut anahtarı korumak için boş bırakın",
+      "apiKeyHint": "Mevcut API anahtarını korumak için boş bırakın",
+      "active": "Aktif"
+    }
+  },
+  "entities": {
+    "title": "Varlıklar",
+    "description": "Bağlayıcılardan keşfedilen API varlıkları",
+    "edit": "Varlığı Düzenle",
+    "deleteConfirm": "Bu varlığı silmek istediğinizden emin misiniz?",
+    "noEntities": "Varlık bulunamadı",
+    "discoverHint": "Varlık bulmak için bir bağlayıcıda keşif çalıştırın",
+    "connector": "Bağlayıcı",
+    "syncedRecords": "Senkronize kayıtlar",
+    "lastSynced": "Son senkronizasyon",
+    "syncNow": "Şimdi Senkronize Et",
+    "syncStarted": "Senkronizasyon başladı",
+    "form": {
+      "name": "Ad",
+      "targetTable": "Hedef Tablo",
+      "syncMode": "Senkronizasyon Modu",
+      "active": "Aktif"
+    },
+    "syncMode": {
+      "full": "Tam Senkronizasyon",
+      "incremental": "Artımlı"
+    }
+  },
+  "sync": {
+    "title": "Senkronizasyonlar",
+    "description": "Senkronizasyon ilerlemesini izle",
+    "noRuns": "Henüz senkronizasyon yok",
+    "records": "Kayıtlar",
+    "duration": "Süre",
+    "status": {
+      "pending": "Beklemede",
+      "running": "Çalışıyor",
+      "completed": "Tamamlandı",
+      "failed": "Başarısız"
+    },
+    "stats": {
+      "total": "Toplam Çalışma",
+      "running": "Çalışıyor",
+      "completed": "Tamamlandı",
+      "failed": "Başarısız"
+    }
+  },
+  "schedules": {
+    "title": "Zamanlamalar",
+    "description": "Otomatik senkronizasyon zamanlamaları",
+    "create": "Yeni Zamanlama",
+    "edit": "Zamanlamayı Düzenle",
+    "deleteConfirm": "Bu zamanlamayı silmek istediğinizden emin misiniz?",
+    "noSchedules": "Yapılandırılmış zamanlama yok",
+    "entity": "Varlık",
+    "nextRun": "Sonraki çalışma",
+    "lastRun": "Son çalışma",
+    "runNow": "Şimdi Çalıştır",
+    "triggered": "Zamanlama tetiklendi",
+    "enable": "Etkinleştir",
+    "disable": "Devre Dışı Bırak",
+    "form": {
+      "name": "Ad",
+      "namePlaceholder": "Günlük Senkronizasyon",
+      "entity": "Varlık",
+      "selectEntity": "Bir varlık seçin",
+      "cronExpression": "Cron İfadesi",
+      "enabled": "Etkin"
+    },
+    "cron": {
+      "everyMinute": "Her dakika",
+      "everyHour": "Her saat",
+      "everyDay": "Günlük",
+      "everyWeek": "Haftalık"
+    }
+  },
+  "failedRecords": {
+    "title": "Başarısız Kayıtlar",
+    "description": "Senkronize edilemeyen kayıtlar",
+    "noRecords": "Başarısız kayıt yok",
+    "totalFailed": "Toplam Başarısız",
+    "deleteConfirm": "Bu başarısız kaydı silmek istediğinizden emin misiniz?",
+    "retry": "Yeniden Dene",
+    "retrySuccess": "Yeniden deneme başlatıldı",
+    "retryCount": "Denemeler",
+    "viewPayload": "Veriyi görüntüle"
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "description": "Tercihlerinizi yapılandırın",
+    "appearance": {
+      "title": "Görünüm",
+      "description": "Görünümü özelleştirin",
+      "theme": "Tema",
+      "themeDescription": "Açık ve koyu mod arasında seçim yapın"
+    },
+    "language": {
+      "title": "Dil",
+      "description": "Dil tercihini değiştir",
+      "select": "Dil",
+      "selectDescription": "Tercih ettiğiniz dili seçin"
+    },
+    "about": {
+      "title": "Hakkında",
+      "description": "Uygulama bilgileri",
+      "version": "Sürüm",
+      "name": "Uygulama"
+    }
+  }
+}

@@ -2,155 +2,87 @@ import { Link, useRouterState } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import {
   LayoutDashboard,
-  RefreshCw,
+  Plug,
   Database,
-  Clock,
-  GitBranch,
-  AlertTriangle,
-  Hourglass,
+  RefreshCw,
+  Calendar,
+  AlertCircle,
   Settings,
   ChevronLeft,
   ChevronRight,
 } from 'lucide-react'
-import { cn } from '@/lib/cn'
-import { useUIStore } from '@/store'
+import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
-import { Separator } from '@/components/ui/separator'
 
-interface NavItem {
-  path: string
-  icon: React.ElementType
-  labelKey: string
-  badge?: number
+interface SidebarProps {
+  collapsed: boolean
+  onToggle: () => void
 }
 
-const mainNavItems: NavItem[] = [
-  { path: '/', icon: LayoutDashboard, labelKey: 'nav.dashboard' },
-  { path: '/sync', icon: RefreshCw, labelKey: 'nav.sync' },
-  { path: '/entities', icon: Database, labelKey: 'nav.entities' },
-  { path: '/schedules', icon: Clock, labelKey: 'nav.schedules' },
-  { path: '/mappings', icon: GitBranch, labelKey: 'nav.mappings' },
+const menuItems = [
+  { path: '/', icon: LayoutDashboard, labelKey: 'sidebar.dashboard' },
+  { path: '/connectors', icon: Plug, labelKey: 'sidebar.connectors' },
+  { path: '/entities', icon: Database, labelKey: 'sidebar.entities' },
+  { path: '/sync', icon: RefreshCw, labelKey: 'sidebar.sync' },
+  { path: '/schedules', icon: Calendar, labelKey: 'sidebar.schedules' },
+  { path: '/failed-records', icon: AlertCircle, labelKey: 'sidebar.failedRecords' },
+  { path: '/settings', icon: Settings, labelKey: 'sidebar.settings' },
 ]
 
-const monitoringNavItems: NavItem[] = [
-  { path: '/monitoring/failed', icon: AlertTriangle, labelKey: 'nav.failedRecords' },
-  { path: '/monitoring/pending', icon: Hourglass, labelKey: 'nav.pendingChildren' },
-]
-
-const bottomNavItems: NavItem[] = [
-  { path: '/settings', icon: Settings, labelKey: 'nav.settings' },
-]
-
-function NavLink({ item, collapsed }: { item: NavItem; collapsed: boolean }) {
+export function Sidebar({ collapsed, onToggle }: SidebarProps) {
   const { t } = useTranslation()
   const routerState = useRouterState()
-  const isActive = routerState.location.pathname === item.path
-
-  const linkContent = (
-    <Link
-      to={item.path}
-      className={cn(
-        'flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors',
-        'hover:bg-neutral-100 dark:hover:bg-neutral-800',
-        isActive
-          ? 'bg-primary-50 text-primary-600 dark:bg-primary-900/20 dark:text-primary-400'
-          : 'text-neutral-600 dark:text-neutral-400',
-        collapsed && 'justify-center px-2'
-      )}
-    >
-      <item.icon className="h-5 w-5 shrink-0" />
-      {!collapsed && <span>{t(item.labelKey)}</span>}
-      {!collapsed && item.badge !== undefined && item.badge > 0 && (
-        <span className="ms-auto rounded-full bg-error-500 px-2 py-0.5 text-xs text-white">
-          {item.badge}
-        </span>
-      )}
-    </Link>
-  )
-
-  if (collapsed) {
-    return (
-      <Tooltip delayDuration={0}>
-        <TooltipTrigger asChild>{linkContent}</TooltipTrigger>
-        <TooltipContent side="right" sideOffset={10}>
-          {t(item.labelKey)}
-        </TooltipContent>
-      </Tooltip>
-    )
-  }
-
-  return linkContent
-}
-
-export function Sidebar() {
-  const { t } = useTranslation()
-  const { sidebarCollapsed, toggleSidebar } = useUIStore()
+  const currentPath = routerState.location.pathname
 
   return (
     <aside
       className={cn(
-        'fixed start-0 top-0 z-40 flex h-screen flex-col border-e border-neutral-200 bg-white transition-all duration-300 dark:border-neutral-700 dark:bg-neutral-900',
-        sidebarCollapsed ? 'w-16' : 'w-60'
+        'fixed top-[var(--header-height)] left-0 h-[calc(100vh-var(--header-height))] bg-card border-r border-border transition-all duration-300 z-40',
+        collapsed ? 'w-[var(--sidebar-collapsed)]' : 'w-[var(--sidebar-width)]'
       )}
     >
-      {/* Logo */}
-      <div className="flex h-14 items-center justify-between border-b border-neutral-200 px-4 dark:border-neutral-700">
-        {!sidebarCollapsed && (
-          <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-500 text-white font-bold">
-              B
-            </div>
-            <span className="font-semibold text-neutral-900 dark:text-neutral-100">
-              SyncFlow
-            </span>
-          </div>
-        )}
+      <nav className="flex flex-col h-full p-2">
+        <div className="flex-1 space-y-1">
+          {menuItems.map((item) => {
+            const isActive = currentPath === item.path
+            const Icon = item.icon
+
+            return (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={cn(
+                  'flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors',
+                  isActive
+                    ? 'bg-primary text-primary-foreground'
+                    : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'
+                )}
+                title={collapsed ? t(item.labelKey) : undefined}
+              >
+                <Icon className="h-5 w-5 shrink-0" />
+                {!collapsed && <span>{t(item.labelKey)}</span>}
+              </Link>
+            )
+          })}
+        </div>
+
         <Button
           variant="ghost"
-          size="icon"
-          onClick={toggleSidebar}
-          className={cn('h-8 w-8', sidebarCollapsed && 'mx-auto')}
+          size="sm"
+          className="mt-auto"
+          onClick={onToggle}
+          title={collapsed ? t('sidebar.expand') : t('sidebar.collapse')}
         >
-          {sidebarCollapsed ? (
+          {collapsed ? (
             <ChevronRight className="h-4 w-4" />
           ) : (
-            <ChevronLeft className="h-4 w-4" />
+            <>
+              <ChevronLeft className="h-4 w-4 mr-2" />
+              <span>{t('sidebar.collapse')}</span>
+            </>
           )}
         </Button>
-      </div>
-
-      {/* Navigation */}
-      <nav className="flex-1 overflow-y-auto p-2">
-        {/* Main Navigation */}
-        <div className="space-y-1">
-          {mainNavItems.map((item) => (
-            <NavLink key={item.path} item={item} collapsed={sidebarCollapsed} />
-          ))}
-        </div>
-
-        {/* Monitoring Section */}
-        <div className="mt-4">
-          {!sidebarCollapsed && (
-            <div className="mb-2 px-3 text-xs font-semibold uppercase tracking-wider text-neutral-500">
-              {t('nav.monitoring')}
-            </div>
-          )}
-          {sidebarCollapsed && <Separator className="my-2" />}
-          <div className="space-y-1">
-            {monitoringNavItems.map((item) => (
-              <NavLink key={item.path} item={item} collapsed={sidebarCollapsed} />
-            ))}
-          </div>
-        </div>
       </nav>
-
-      {/* Bottom Navigation */}
-      <div className="border-t border-neutral-200 p-2 dark:border-neutral-700">
-        {bottomNavItems.map((item) => (
-          <NavLink key={item.path} item={item} collapsed={sidebarCollapsed} />
-        ))}
-      </div>
     </aside>
   )
 }

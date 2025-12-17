@@ -1,20 +1,21 @@
+import { useState } from 'react'
 import { Outlet } from '@tanstack/react-router'
-import { Sidebar } from './Sidebar'
+import { cn } from '@/lib/utils'
 import { Header } from './Header'
-import { useUIStore } from '@/store'
-import { cn } from '@/lib/cn'
+import { Sidebar } from './Sidebar'
 
 export function AppShell() {
-  const { sidebarCollapsed } = useUIStore()
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
 
   return (
-    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
-      <Sidebar />
+    <div className="min-h-screen bg-background">
       <Header />
+      <Sidebar collapsed={sidebarCollapsed} onToggle={() => setSidebarCollapsed(!sidebarCollapsed)} />
+
       <main
         className={cn(
-          'min-h-screen pt-14 transition-all duration-300',
-          sidebarCollapsed ? 'ps-16' : 'ps-60'
+          'pt-[var(--header-height)] transition-all duration-300',
+          sidebarCollapsed ? 'pl-[var(--sidebar-collapsed)]' : 'pl-[var(--sidebar-width)]'
         )}
       >
         <div className="p-6">

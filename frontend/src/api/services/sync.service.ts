@@ -1,19 +1,47 @@
 import { apiClient } from '../client'
-import type { SyncStartRequest, SyncStatusResponse, BatchHistory } from '../types'
+import type { SyncRun, PaginatedResponse } from '@/types'
 
 export const syncService = {
-  startSync: (data: SyncStartRequest) =>
-    apiClient.post<SyncStatusResponse>('/sync/start', data),
+  getAll: async (): Promise<SyncRun[]> => {
+    const response = await apiClient.get<PaginatedResponse<SyncRun> | SyncRun[]>('/sync-runs')
+    if (Array.isArray(response.data)) {
+      return response.data
+    }
+    return response.data.items
+  },
 
-  getStatus: (batchUid: string) =>
-    apiClient.get<SyncStatusResponse>(`/sync/status/${batchUid}`),
+  getById: async (uid: string): Promise<SyncRun> => {
+    const response = await apiClient.get<SyncRun>(`/sync-runs/${uid}`)
+    return response.data
+  },
 
-  stopSync: (batchUid: string) =>
-    apiClient.post(`/sync/stop/${batchUid}`),
+  getByEntity: async (entityUid: string): Promise<SyncRun[]> => {
+    const response = await apiClient.get<PaginatedResponse<SyncRun> | SyncRun[]>(
+      `/entities/${entityUid}/runs`
+    )
+    if (Array.isArray(response.data)) {
+      return response.data
+    }
+    return response.data.items
+  },
 
-  getHistory: (params?: { page?: number; page_size?: number; entity_name?: string }) =>
-    apiClient.get<BatchHistory>('/sync/history', { params }),
+  getRecent: async (limit: number = 10): Promise<SyncRun[]> => {
+    const response = await apiClient.get<PaginatedResponse<SyncRun> | SyncRun[]>(
+      `/sync-runs?limit=${limit}&sort=-started_at_utc`
+    )
+    if (Array.isArray(response.data)) {
+      return response.data
+    }
+    return response.data.items
+  },
 
-  retryFailed: (data: { batch_uid?: string; entity_name?: string }) =>
-    apiClient.post('/sync/retry-failed', data),
+  getRunning: async (): Promise<SyncRun[]> => {
+    const response = await apiClient.get<PaginatedResponse<SyncRun> | SyncRun[]>(
+      '/sync-runs?status=running'
+    )
+    if (Array.isArray(response.data)) {
+      return response.data
+    }
+    return response.data.items
+  },
 }

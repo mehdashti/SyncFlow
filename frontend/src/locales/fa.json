@@ -1,0 +1,179 @@
+{
+  "common": {
+    "search": "جستجو...",
+    "cancel": "انصراف",
+    "save": "ذخیره",
+    "create": "ایجاد",
+    "delete": "حذف",
+    "edit": "ویرایش",
+    "saving": "در حال ذخیره...",
+    "noData": "داده‌ای موجود نیست",
+    "loading": "در حال بارگذاری...",
+    "actions": "عملیات"
+  },
+  "success": {
+    "created": "با موفقیت ایجاد شد",
+    "updated": "با موفقیت به‌روزرسانی شد",
+    "deleted": "با موفقیت حذف شد"
+  },
+  "errors": {
+    "serverError": "خطایی رخ داد. لطفاً دوباره تلاش کنید.",
+    "notFound": "یافت نشد",
+    "unauthorized": "غیرمجاز"
+  },
+  "status": {
+    "active": "فعال",
+    "inactive": "غیرفعال",
+    "enabled": "فعال",
+    "disabled": "غیرفعال"
+  },
+  "sidebar": {
+    "dashboard": "داشبورد",
+    "connectors": "کانکتورها",
+    "entities": "موجودیت‌ها",
+    "sync": "اجراهای همگام‌سازی",
+    "schedules": "زمان‌بندی‌ها",
+    "failedRecords": "رکوردهای ناموفق",
+    "settings": "تنظیمات"
+  },
+  "dashboard": {
+    "title": "داشبورد",
+    "totalConnectors": "کل کانکتورها",
+    "totalEntities": "کل موجودیت‌ها",
+    "syncedRecords": "رکوردهای همگام‌شده",
+    "failedRecords": "رکوردهای ناموفق",
+    "recentSyncs": "همگام‌سازی‌های اخیر",
+    "noRecentSyncs": "همگام‌سازی اخیری وجود ندارد"
+  },
+  "connectors": {
+    "title": "کانکتورها",
+    "create": "کانکتور جدید",
+    "edit": "ویرایش کانکتور",
+    "deleteConfirm": "آیا از حذف این کانکتور مطمئن هستید؟",
+    "test": "تست",
+    "discover": "کشف",
+    "testSuccess": "اتصال موفق",
+    "testFailed": "اتصال ناموفق",
+    "discoverySuccess": "کشف تکمیل شد",
+    "newEntities": "موجودیت جدید یافت شد",
+    "lastTested": "آخرین تست",
+    "status": {
+      "connected": "متصل",
+      "error": "خطا",
+      "untested": "تست نشده"
+    },
+    "form": {
+      "name": "نام",
+      "namePlaceholder": "نمونه APISmith من",
+      "baseUrl": "آدرس پایه",
+      "apiKey": "کلید API",
+      "apiKeyPlaceholder": "برای حفظ کلید موجود خالی بگذارید",
+      "apiKeyHint": "برای حفظ کلید API فعلی خالی بگذارید",
+      "active": "فعال"
+    }
+  },
+  "entities": {
+    "title": "موجودیت‌ها",
+    "description": "موجودیت‌های API کشف‌شده از کانکتورها",
+    "edit": "ویرایش موجودیت",
+    "deleteConfirm": "آیا از حذف این موجودیت مطمئن هستید؟",
+    "noEntities": "موجودیتی یافت نشد",
+    "discoverHint": "برای یافتن موجودیت‌ها، کشف را روی یک کانکتور اجرا کنید",
+    "connector": "کانکتور",
+    "syncedRecords": "رکوردهای همگام‌شده",
+    "lastSynced": "آخرین همگام‌سازی",
+    "syncNow": "همگام‌سازی الان",
+    "syncStarted": "همگام‌سازی شروع شد",
+    "form": {
+      "name": "نام",
+      "targetTable": "جدول مقصد",
+      "syncMode": "حالت همگام‌سازی",
+      "active": "فعال"
+    },
+    "syncMode": {
+      "full": "همگام‌سازی کامل",
+      "incremental": "افزایشی"
+    }
+  },
+  "sync": {
+    "title": "اجراهای همگام‌سازی",
+    "description": "نظارت بر پیشرفت همگام‌سازی",
+    "noRuns": "هنوز اجرایی وجود ندارد",
+    "records": "رکوردها",
+    "duration": "مدت زمان",
+    "status": {
+      "pending": "در انتظار",
+      "running": "در حال اجرا",
+      "completed": "تکمیل شده",
+      "failed": "ناموفق"
+    },
+    "stats": {
+      "total": "کل اجراها",
+      "running": "در حال اجرا",
+      "completed": "تکمیل شده",
+      "failed": "ناموفق"
+    }
+  },
+  "schedules": {
+    "title": "زمان‌بندی‌ها",
+    "description": "زمان‌بندی‌های خودکار همگام‌سازی",
+    "create": "زمان‌بندی جدید",
+    "edit": "ویرایش زمان‌بندی",
+    "deleteConfirm": "آیا از حذف این زمان‌بندی مطمئن هستید؟",
+    "noSchedules": "زمان‌بندی‌ای پیکربندی نشده",
+    "entity": "موجودیت",
+    "nextRun": "اجرای بعدی",
+    "lastRun": "آخرین اجرا",
+    "runNow": "اجرای الان",
+    "triggered": "زمان‌بندی فعال شد",
+    "enable": "فعال‌سازی",
+    "disable": "غیرفعال‌سازی",
+    "form": {
+      "name": "نام",
+      "namePlaceholder": "همگام‌سازی روزانه",
+      "entity": "موجودیت",
+      "selectEntity": "یک موجودیت انتخاب کنید",
+      "cronExpression": "عبارت Cron",
+      "enabled": "فعال"
+    },
+    "cron": {
+      "everyMinute": "هر دقیقه",
+      "everyHour": "هر ساعت",
+      "everyDay": "روزانه",
+      "everyWeek": "هفتگی"
+    }
+  },
+  "failedRecords": {
+    "title": "رکوردهای ناموفق",
+    "description": "رکوردهایی که همگام‌سازی نشدند",
+    "noRecords": "رکورد ناموفقی وجود ندارد",
+    "totalFailed": "کل ناموفق‌ها",
+    "deleteConfirm": "آیا از حذف این رکورد ناموفق مطمئن هستید؟",
+    "retry": "تلاش مجدد",
+    "retrySuccess": "تلاش مجدد آغاز شد",
+    "retryCount": "تلاش‌ها",
+    "viewPayload": "مشاهده داده"
+  },
+  "settings": {
+    "title": "تنظیمات",
+    "description": "تنظیمات خود را پیکربندی کنید",
+    "appearance": {
+      "title": "ظاهر",
+      "description": "ظاهر را سفارشی کنید",
+      "theme": "تم",
+      "themeDescription": "بین حالت روشن و تاریک انتخاب کنید"
+    },
+    "language": {
+      "title": "زبان",
+      "description": "ترجیح زبان خود را تغییر دهید",
+      "select": "زبان",
+      "selectDescription": "زبان مورد نظر خود را انتخاب کنید"
+    },
+    "about": {
+      "title": "درباره",
+      "description": "اطلاعات برنامه",
+      "version": "نسخه",
+      "name": "برنامه"
+    }
+  }
+}

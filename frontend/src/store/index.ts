@@ -1,3 +1,2 @@
-export { useUIStore } from './uiStore'
-export { useSyncStore } from './syncStore'
-export { useFilterStore } from './filterStore'
+export { useThemeStore, type Theme } from './themeStore'
+export { useLocaleStore } from './localeStore'

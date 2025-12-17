@@ -1,0 +1,179 @@
+{
+  "common": {
+    "search": "بحث...",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "create": "إنشاء",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "saving": "جارٍ الحفظ...",
+    "noData": "لا توجد بيانات",
+    "loading": "جارٍ التحميل...",
+    "actions": "إجراءات"
+  },
+  "success": {
+    "created": "تم الإنشاء بنجاح",
+    "updated": "تم التحديث بنجاح",
+    "deleted": "تم الحذف بنجاح"
+  },
+  "errors": {
+    "serverError": "حدث خطأ. يرجى المحاولة مرة أخرى.",
+    "notFound": "غير موجود",
+    "unauthorized": "غير مصرح"
+  },
+  "status": {
+    "active": "نشط",
+    "inactive": "غير نشط",
+    "enabled": "مفعل",
+    "disabled": "معطل"
+  },
+  "sidebar": {
+    "dashboard": "لوحة التحكم",
+    "connectors": "الموصلات",
+    "entities": "الكيانات",
+    "sync": "عمليات المزامنة",
+    "schedules": "الجداول",
+    "failedRecords": "السجلات الفاشلة",
+    "settings": "الإعدادات"
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "totalConnectors": "إجمالي الموصلات",
+    "totalEntities": "إجمالي الكيانات",
+    "syncedRecords": "السجلات المزامنة",
+    "failedRecords": "السجلات الفاشلة",
+    "recentSyncs": "عمليات المزامنة الأخيرة",
+    "noRecentSyncs": "لا توجد عمليات مزامنة حديثة"
+  },
+  "connectors": {
+    "title": "الموصلات",
+    "create": "موصل جديد",
+    "edit": "تعديل الموصل",
+    "deleteConfirm": "هل أنت متأكد من حذف هذا الموصل؟",
+    "test": "اختبار",
+    "discover": "اكتشاف",
+    "testSuccess": "الاتصال ناجح",
+    "testFailed": "فشل الاتصال",
+    "discoverySuccess": "اكتمل الاكتشاف",
+    "newEntities": "كيانات جديدة تم العثور عليها",
+    "lastTested": "آخر اختبار",
+    "status": {
+      "connected": "متصل",
+      "error": "خطأ",
+      "untested": "غير مختبر"
+    },
+    "form": {
+      "name": "الاسم",
+      "namePlaceholder": "مثيل APISmith الخاص بي",
+      "baseUrl": "عنوان URL الأساسي",
+      "apiKey": "مفتاح API",
+      "apiKeyPlaceholder": "اتركه فارغًا للاحتفاظ بالمفتاح الحالي",
+      "apiKeyHint": "اتركه فارغًا للاحتفاظ بمفتاح API الحالي",
+      "active": "نشط"
+    }
+  },
+  "entities": {
+    "title": "الكيانات",
+    "description": "كيانات API المكتشفة من الموصلات",
+    "edit": "تعديل الكيان",
+    "deleteConfirm": "هل أنت متأكد من حذف هذا الكيان؟",
+    "noEntities": "لم يتم العثور على كيانات",
+    "discoverHint": "قم بتشغيل الاكتشاف على موصل للعثور على الكيانات",
+    "connector": "الموصل",
+    "syncedRecords": "السجلات المزامنة",
+    "lastSynced": "آخر مزامنة",
+    "syncNow": "مزامنة الآن",
+    "syncStarted": "بدأت المزامنة",
+    "form": {
+      "name": "الاسم",
+      "targetTable": "الجدول الهدف",
+      "syncMode": "وضع المزامنة",
+      "active": "نشط"
+    },
+    "syncMode": {
+      "full": "مزامنة كاملة",
+      "incremental": "تزايدي"
+    }
+  },
+  "sync": {
+    "title": "عمليات المزامنة",
+    "description": "مراقبة تقدم المزامنة",
+    "noRuns": "لا توجد عمليات مزامنة بعد",
+    "records": "السجلات",
+    "duration": "المدة",
+    "status": {
+      "pending": "قيد الانتظار",
+      "running": "قيد التشغيل",
+      "completed": "مكتمل",
+      "failed": "فشل"
+    },
+    "stats": {
+      "total": "إجمالي العمليات",
+      "running": "قيد التشغيل",
+      "completed": "مكتمل",
+      "failed": "فشل"
+    }
+  },
+  "schedules": {
+    "title": "الجداول",
+    "description": "جداول المزامنة التلقائية",
+    "create": "جدول جديد",
+    "edit": "تعديل الجدول",
+    "deleteConfirm": "هل أنت متأكد من حذف هذا الجدول؟",
+    "noSchedules": "لم يتم تكوين جداول",
+    "entity": "الكيان",
+    "nextRun": "التشغيل التالي",
+    "lastRun": "آخر تشغيل",
+    "runNow": "تشغيل الآن",
+    "triggered": "تم تفعيل الجدول",
+    "enable": "تفعيل",
+    "disable": "تعطيل",
+    "form": {
+      "name": "الاسم",
+      "namePlaceholder": "المزامنة اليومية",
+      "entity": "الكيان",
+      "selectEntity": "اختر كيانًا",
+      "cronExpression": "تعبير Cron",
+      "enabled": "مفعل"
+    },
+    "cron": {
+      "everyMinute": "كل دقيقة",
+      "everyHour": "كل ساعة",
+      "everyDay": "يوميًا",
+      "everyWeek": "أسبوعيًا"
+    }
+  },
+  "failedRecords": {
+    "title": "السجلات الفاشلة",
+    "description": "السجلات التي فشلت في المزامنة",
+    "noRecords": "لا توجد سجلات فاشلة",
+    "totalFailed": "إجمالي الفاشل",
+    "deleteConfirm": "هل أنت متأكد من حذف هذا السجل الفاشل؟",
+    "retry": "إعادة المحاولة",
+    "retrySuccess": "بدأت إعادة المحاولة",
+    "retryCount": "المحاولات",
+    "viewPayload": "عرض البيانات"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "description": "تكوين تفضيلاتك",
+    "appearance": {
+      "title": "المظهر",
+      "description": "تخصيص المظهر",
+      "theme": "السمة",
+      "themeDescription": "اختر بين الوضع الفاتح والداكن"
+    },
+    "language": {
+      "title": "اللغة",
+      "description": "تغيير تفضيل اللغة",
+      "select": "اللغة",
+      "selectDescription": "اختر لغتك المفضلة"
+    },
+    "about": {
+      "title": "حول",
+      "description": "معلومات التطبيق",
+      "version": "الإصدار",
+      "name": "التطبيق"
+    }
+  }
+}
