@@ -12,6 +12,7 @@ from sqlalchemy import select, insert, update, delete
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.base import field_mappings_table
+from app.core.uuid_utils import generate_uuid7
 
 
 class MappingRepository:
@@ -60,7 +61,9 @@ class MappingRepository:
         )
 
         try:
+            uid = generate_uuid7()
             stmt = insert(field_mappings_table).values(
+                uid=uid,
                 entity_name=entity_name,
                 source_field=source_field,
                 target_field=target_field,

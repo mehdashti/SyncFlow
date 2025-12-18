@@ -1,9 +1,10 @@
 import { apiClient } from '../client'
+import { API_ENDPOINTS } from '../endpoints'
 import type { SyncRun, PaginatedResponse } from '@/types'
 
 export const syncService = {
   getAll: async (): Promise<SyncRun[]> => {
-    const response = await apiClient.get<PaginatedResponse<SyncRun> | SyncRun[]>('/sync-runs')
+    const response = await apiClient.get<PaginatedResponse<SyncRun> | SyncRun[]>(API_ENDPOINTS.SYNC_RUNS.LIST)
     if (Array.isArray(response.data)) {
       return response.data
     }

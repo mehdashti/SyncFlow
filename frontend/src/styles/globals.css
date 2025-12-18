@@ -2,7 +2,8 @@
 
 /* ========================================
    Enterprise Design System - Petrol Palette
-   Version: 2.0.0
+   Version: 2.1.0
+   Aligned with SyncFlow Design System v2.1
    ======================================== */
 
 @theme {
@@ -38,11 +39,11 @@
   --color-sidebar-foreground: hsl(var(--sidebar-foreground));
   --color-sidebar-accent: hsl(var(--sidebar-accent));
 
-  /* Border radius - 4px for enterprise look */
+  /* Border radius - 3px for sharp enterprise look */
   --radius-sm: 2px;
-  --radius-md: 4px;
-  --radius-lg: 6px;
-  --radius-xl: 8px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
+  --radius-pill: 9999px;
 }
 
 @layer base {
@@ -79,7 +80,7 @@
     --input: 214 32% 91%;
     --ring: 195 100% 28%;
 
-    --radius: 4px;
+    --radius: 3px;
 
     /* Semantic colors - Light */
     --success: 142 76% 36%;
@@ -93,7 +94,12 @@
     --warning-border: 38 92% 70%;
 
     --info: 199 89% 48%;
-    --info-foreground: 0 0% 100%;
+    --info-foreground: 199 90% 27%;
+    --info-bg: 199 89% 94%;
+    --info-border: 199 70% 60%;
+
+    --destructive-bg: 0 84% 95%;
+    --destructive-border: 0 70% 70%;
 
     /* Sidebar - Dark petrol */
     --sidebar: 200 50% 20%;           /* #1E3A4C */
@@ -156,6 +162,11 @@
 
     --info: 199 89% 48%;
     --info-foreground: 199 80% 95%;
+    --info-bg: 199 50% 15%;
+    --info-border: 199 40% 30%;
+
+    --destructive-bg: 0 50% 15%;
+    --destructive-border: 0 40% 30%;
 
     /* Sidebar - Darker petrol */
     --sidebar: 210 40% 5%;            /* #0B131E */

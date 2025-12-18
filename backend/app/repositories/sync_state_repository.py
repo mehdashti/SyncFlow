@@ -11,6 +11,7 @@ from sqlalchemy import select, insert, update
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.base import erp_sync_state_table
+from app.core.uuid_utils import generate_uuid7
 
 
 class SyncStateRepository:
@@ -83,7 +84,9 @@ class SyncStateRepository:
         try:
             from sqlalchemy import func
 
+            uid = generate_uuid7()
             stmt = insert(erp_sync_state_table).values(
+                uid=uid,
                 entity_name=entity_name,
                 last_sync_rowversion=last_sync_rowversion,
                 last_sync_timestamp=last_sync_timestamp or func.now(),

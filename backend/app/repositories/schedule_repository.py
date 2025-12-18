@@ -11,9 +11,9 @@ from uuid import UUID
 from loguru import logger
 from sqlalchemy import select, insert, update, delete, func
 from sqlalchemy.ext.asyncio import AsyncSession
-from uuid_utils import uuid7
 
 from app.db.base import background_sync_schedule_table
+from app.core.uuid_utils import generate_uuid7
 
 
 class ScheduleRepository:
@@ -70,7 +70,7 @@ class ScheduleRepository:
 
         try:
             # Generate UUID v7
-            uid = uuid7()
+            uid = generate_uuid7()
 
             # Calculate rows_per_day if total_rows_estimate provided
             if total_rows_estimate and not rows_per_day:

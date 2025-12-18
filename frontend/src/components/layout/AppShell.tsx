@@ -9,7 +9,7 @@ export function AppShell() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <Header onMenuToggle={() => setSidebarCollapsed(!sidebarCollapsed)} />
       <Sidebar collapsed={sidebarCollapsed} onToggle={() => setSidebarCollapsed(!sidebarCollapsed)} />
 
       <main

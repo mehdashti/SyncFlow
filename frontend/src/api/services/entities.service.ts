@@ -1,9 +1,10 @@
 import { apiClient } from '../client'
+import { API_ENDPOINTS } from '../endpoints'
 import type { Entity, EntityUpdate, PaginatedResponse } from '@/types'
 
 export const entitiesService = {
   getAll: async (): Promise<Entity[]> => {
-    const response = await apiClient.get<PaginatedResponse<Entity> | Entity[]>('/entities')
+    const response = await apiClient.get<PaginatedResponse<Entity> | Entity[]>(API_ENDPOINTS.ENTITIES.LIST)
     if (Array.isArray(response.data)) {
       return response.data
     }

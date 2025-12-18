@@ -1,3 +1,4 @@
+import { API_ENDPOINTS } from '../endpoints'
 import { apiClient } from '../client'
 import type {
   Connector,
@@ -10,7 +11,7 @@ import type {
 
 export const connectorsService = {
   getAll: async (): Promise<Connector[]> => {
-    const response = await apiClient.get<PaginatedResponse<Connector> | Connector[]>('/connectors')
+    const response = await apiClient.get<PaginatedResponse<Connector> | Connector[]>(API_ENDPOINTS.CONNECTORS.LIST)
     // Handle both paginated and array responses
     if (Array.isArray(response.data)) {
       return response.data
@@ -24,7 +25,7 @@ export const connectorsService = {
   },
 
   create: async (data: ConnectorCreate): Promise<Connector> => {
-    const response = await apiClient.post<Connector>('/connectors', data)
+    const response = await apiClient.post<Connector>(API_ENDPOINTS.CONNECTORS.LIST, data)
     return response.data
   },
 

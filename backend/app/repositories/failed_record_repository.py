@@ -12,6 +12,7 @@ from sqlalchemy import select, insert, update, delete
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.base import failed_records_table
+from app.core.uuid_utils import generate_uuid7
 
 
 class FailedRecordRepository:
@@ -63,7 +64,9 @@ class FailedRecordRepository:
         )
 
         try:
+            uid = generate_uuid7()
             stmt = insert(failed_records_table).values(
+                uid=uid,
                 batch_uid=batch_uid,
                 entity_name=entity_name,
                 record_data=record_data,

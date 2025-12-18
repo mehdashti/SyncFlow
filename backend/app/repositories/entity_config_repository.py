@@ -12,6 +12,7 @@ from sqlalchemy import select, insert, update, delete, func
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.base import entity_config_table, sync_batches_table, field_mappings_table
+from app.core.uuid_utils import generate_uuid7
 
 
 class EntityConfigRepository:
@@ -60,7 +61,9 @@ class EntityConfigRepository:
         logger.info(f"Creating entity config: {entity_name}")
 
         try:
+            uid = generate_uuid7()
             stmt = insert(entity_config_table).values(
+                uid=uid,
                 entity_name=entity_name,
                 connector_api_slug=connector_api_slug,
                 business_key_fields=business_key_fields,

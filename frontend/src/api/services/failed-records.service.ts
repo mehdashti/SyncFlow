@@ -1,10 +1,11 @@
 import { apiClient } from '../client'
+import { API_ENDPOINTS } from '../endpoints'
 import type { FailedRecord, PaginatedResponse } from '@/types'
 
 export const failedRecordsService = {
   getAll: async (): Promise<FailedRecord[]> => {
     const response = await apiClient.get<PaginatedResponse<FailedRecord> | FailedRecord[]>(
-      '/failed-records'
+      API_ENDPOINTS.FAILED_RECORDS.LIST
     )
     if (Array.isArray(response.data)) {
       return response.data

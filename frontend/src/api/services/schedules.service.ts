@@ -1,9 +1,10 @@
 import { apiClient } from '../client'
+import { API_ENDPOINTS } from '../endpoints'
 import type { Schedule, ScheduleCreate, ScheduleUpdate, PaginatedResponse } from '@/types'
 
 export const schedulesService = {
   getAll: async (): Promise<Schedule[]> => {
-    const response = await apiClient.get<PaginatedResponse<Schedule> | Schedule[]>('/schedules')
+    const response = await apiClient.get<PaginatedResponse<Schedule> | Schedule[]>(API_ENDPOINTS.SCHEDULES.LIST)
     if (Array.isArray(response.data)) {
       return response.data
     }
@@ -16,7 +17,7 @@ export const schedulesService = {
   },
 
   create: async (data: ScheduleCreate): Promise<Schedule> => {
-    const response = await apiClient.post<Schedule>('/schedules', data)
+    const response = await apiClient.post<Schedule>(API_ENDPOINTS.SCHEDULES.LIST, data)
     return response.data
   },
 

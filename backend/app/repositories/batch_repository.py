@@ -13,6 +13,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.base import sync_batches_table
 from app.core.config import settings
+from app.core.uuid_utils import generate_uuid7
 
 
 class BatchRepository:
@@ -60,7 +61,9 @@ class BatchRepository:
         )
 
         try:
+            uid = generate_uuid7()
             stmt = insert(sync_batches_table).values(
+                uid=uid,
                 entity_name=entity_name,
                 sync_type=sync_type,
                 status="pending",
